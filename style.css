@@ -1,0 +1,62 @@
+html,
+body {
+  background-color: #D2B083;
+  height: 100%;
+  width: 100%;
+  border: 5px solid black;
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #F8F2E5;
+}
+
+#header {
+  border: 5px solid #38200B;
+  background-color: #694D27;
+  color: #F0D691;
+  text-align: center;
+  font-size: 50px;
+  padding: 40px;
+}
+
+#motto {
+  color: #F0D691;
+  text-align: center;
+  font-size: 30px;
+  font-style: italic;
+  margin: 10px;
+}
+
+#nav {
+  line-height: 30px;
+  background-color: #9E7D50;
+  border: 0px solid #38200B;
+  height: 300px;
+  width: 10%;
+  float: left;
+  padding: 5px;
+}
+
+#info {
+  width: 87%;
+  float: left;
+  text-align: justify;
+  padding: 10px;
+  border: 0px solid #38200B;
+}
+
+#footer {
+  text-align: center;
+  width: 100%;
+  background-color: D2B083;
+  clear: both;
+  font-size: 10px;
+  border: 1px solid #38200B;
+}
