@@ -10,8 +10,88 @@
 		}
 	}
 
+	#Verifies that the given team exists
+	function verifyTeam($teamName){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		
+		try{
+			require("logindb.php");
+
+			$nameQuery = $db->prepare("SELECT Name FROM TEAMS WHERE Name=:teamName");
+			$nameParam = array(":teamName" => $teamName);
+			$nameQuery->execute($nameParam);
+			$nameRes = $nameQuery->fetch();
+			if(!$nameRes){
+				return 0;
+			}
+			return 1;
+		} catch(Exception $e){
+			die($e);
+		}
+	}
+
+	#Checks that the currently logged in user is a member of the given team
+	function verifyMembership($teamName){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		verifyLogin();
+
+		$username = $_SESSION["username"];
+	
+		require("logindb.php");
+
+		$memberQuery = $db->prepare("SELECT UName FROM TEAM_MEMBERSHIP WHERE UName=:username AND TName=:teamName");
+		$memberParams = array(":username" => $username, ":teamName" => $teamName);
+		$memberQuery->execute($memberParams);
+		$res = $memberQuery->fetch();
+		if(!$res){
+			return 0;
+		}
+		return 1;
+
+	}
+
+	#Adds a task to a team's database
+	function addTask($teamName, $taskName, $taskDescription){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));	
+				
+			$insertQuery = $teamDb->prepare("INSERT INTO TASKS (Title, Description) VALUES (?, ?)");
+			$insertParams = array($taskName, $taskDescription);
+			$insertQuery->execute($insertParams);
+		} catch(Exception $e){
+			die($e);
+		}
+	}
+
+	#Logs into a given team's database
+	function teamLogin($teamName){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			#Variables may need to be modified for security/depending on server configuration
+			$dbhost = "localhost";
+			$dbuser = "root";
+			$dbpassword = "projectok";
+			$dbname = $teamName;
+	
+			$db = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpassword);
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			return $db;
+			
+		} catch(Exception $e){
+			die($e);
+		}
+
+	}
+
 	#Checks that a team with the given name doesn't already exists, and creates it if there is no conflict	
 	function createTeam($teamName){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
 
 		require("logindb.php");
 	
@@ -61,6 +141,8 @@
 
 	#Creates a new team database. Do not call this method except through createTeam!
 	function createTeamDatabase($teamName){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
 		try{
 			#Variables may need to be modified for security/depending on server configuration
 			$dbhost = "localhost";
@@ -77,6 +159,23 @@
 			$createQuery = "CREATE DATABASE $spaceReplacedTeamName";	
 			$create = $pdo->prepare($createQuery);
 			$create->execute();
+
+			#$switch = "USE $spaceReplacedTeamName";
+			#echo ($switch);
+			#$swtichCom = $pdo->prepare($switch);
+			#$switchCom->execute();
+			$teamPdo = new PDO("mysql:host=$dbhost;dbname=$spaceReplacedTeamName", $dbuser, $dbpassword);
+			$teamPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+			$taskTable = "CREATE TABLE IF NOT EXISTS TASKS( TaskID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, INDEX(TaskID), UNIQUE(TaskID)," . 
+				" Title VARCHAR(100) NOT NULL, INDEX(Title), UNIQUE(Title)," .
+				" Description VARCHAR(3000) NOT NULL )";
+			echo "$taskTable";
+
+			$taskTableCom = $teamPdo->prepare($taskTable);
+			$taskTableCom->execute();
+			
 		} catch (Exception $e){
 			die($e);
 		}
@@ -84,6 +183,8 @@
 
 	#Gets a list of all the teams where the given user is a member
 	function getTeamsForUser($username){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
 
 		require("logindb.php");
 		
