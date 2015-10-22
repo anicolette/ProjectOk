@@ -1,7 +1,7 @@
 <?php
 	try{
 		#Variables may need to be modified for security/depending on server configuration
-		$dbhost = "localhost:85";
+		$dbhost = "localhost";
 		$dbuser = "root";
 		$dbpassword = "projectok";
 		$dbname = "LOGINDB";

@@ -2,12 +2,37 @@
 
 	#Checks that the user is logged in and redirects to the login page if they aren't
 	function verifyLogin(){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
 		require_once("session.php");
 
 		if(!isset($_SESSION["username"])){
 			header("Location: login.php");
 			exit();
 		}
+	}
+
+	#Verify that the given username exists
+	function verifyUser($username){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+
+		require("logindb.php");
+
+		try{
+			$userQuery = $db->prepare("SELECT Name FROM USERS WHERE Name=:username");
+			$nameParam = array(":username" => $username);
+			$userQuery->execute($nameParam);
+			$userRes = $userQuery->fetch();
+
+			if(!$userRes){
+				return 0;
+			}
+			return 1;
+		} catch (Exception $e){
+			die($e);
+		}
+
 	}
 
 	#Verifies that the given team exists
@@ -39,32 +64,62 @@
 
 		$username = $_SESSION["username"];
 	
-		require("logindb.php");
-
-		$memberQuery = $db->prepare("SELECT UName FROM TEAM_MEMBERSHIP WHERE UName=:username AND TName=:teamName");
-		$memberParams = array(":username" => $username, ":teamName" => $teamName);
-		$memberQuery->execute($memberParams);
-		$res = $memberQuery->fetch();
-		if(!$res){
-			return 0;
-		}
-		return 1;
+		return isMemberOfTeam($username, $teamName);
 
 	}
 
+	#Checks that the given user is a member of the given team
+	function isMemberOfTeam($username, $teamName){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		require("logindb.php");
+	
+		try{	
+			$memberQuery = $db->prepare("SELECT UName FROM TEAM_MEMBERSHIP WHERE UName=:username AND TName=:teamName");
+			$memberParams = array(":username" => $username, ":teamName" => $teamName);
+			$memberQuery->execute($memberParams);
+			$res = $memberQuery->fetch();
+			if(!$res){
+				return 0;
+			}
+			return 1;
+		} catch (Exception $e){
+			die($e);
+		}
+	}
+
 	#Adds a task to a team's database
-	function addTask($teamName, $taskName, $taskDescription){
+	function addTask($teamName, $taskName, $taskDescription, $date){
 		error_reporting(E_ALL);
 		ini_set('display_errors', 1);
 		try{
 			$teamDb = teamLogin(spaceReplace($teamName));	
 				
-			$insertQuery = $teamDb->prepare("INSERT INTO TASKS (Title, Description) VALUES (?, ?)");
-			$insertParams = array($taskName, $taskDescription);
+			$insertQuery = $teamDb->prepare("INSERT INTO TASKS (Title, Description, CreationDate) VALUES (?, ?, ?)");
+			$insertParams = array($taskName, $taskDescription, $date);
 			$insertQuery->execute($insertParams);
 		} catch(Exception $e){
 			die($e);
 		}
+	}
+
+	#Gets all the tasks from a team's database and returns the JSON representation
+	function getTasks($teamName){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));	
+
+			$taskQ = $teamDb->prepare("SELECT * FROM TASKS");
+			$taskQ->setFetchMode(PDO::FETCH_ASSOC);
+			$taskQ->execute();
+
+			$taskList = $taskQ->fetchAll();
+			return (json_encode($taskList));
+		} catch(Exception $e){
+			die($e);
+		}
+		
 	}
 
 	#Logs into a given team's database
@@ -114,19 +169,41 @@
 			if(!$createTeam->execute($createTeamParams)){
 				die("Failed to create team!");
 			}
-
-			$updateMembership = $db->prepare("INSERT INTO TEAM_MEMBERSHIP (TName, UName) VALUES ((SELECT Name FROM TEAMS WHERE TEAMS.Name=:teamName), (SELECT Name FROM USERS WHERE USERS.Name=:username))");
-			$updateParams = array(":teamName" => $teamName, ":username" => $_SESSION["username"]);
-			if(!$updateMembership->execute($updateParams)){
-				die("Failed to update team membership!");
-			}
-
+			
 			createTeamDatabase($teamName);
+
+			addMemberToTeam($teamName, $_SESSION["username"]);
+
 	
 			header("Location: profile.php");
 		} catch (Exception $e){
 			die($e);
 		} 
+	}
+
+	#Adds a member to a team
+	function addMemberToTeam($teamName, $memberName){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+
+		require("logindb.php");
+		if(verifyUser($memberName) && verifyTeam($teamName)){
+			if(isMemberOfTeam($memberName, $teamName)){
+				echo "$memberName is already a member of $teamName!\n";
+				echo "<script>setTimeout(\"window.location='teamPage.php?&teamName=$teamName'\", 3000);</script>";
+				exit();
+			}
+			try{
+				$updateMembership = $db->prepare("INSERT INTO TEAM_MEMBERSHIP (TName, UName) VALUES ((SELECT Name FROM TEAMS WHERE TEAMS.Name=:teamName), (SELECT Name FROM USERS WHERE USERS.Name=:username))");
+				$updateParams = array(":teamName" => $teamName, ":username" => $memberName);
+				if(!$updateMembership->execute($updateParams)){
+					die("Failed to update team membership!");
+				}
+				
+			} catch (Exception $e){
+				die($e);
+			}
+		}
 	}
 
 	#Replace _'s with spaces
@@ -170,7 +247,9 @@
 
 			$taskTable = "CREATE TABLE IF NOT EXISTS TASKS( TaskID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, INDEX(TaskID), UNIQUE(TaskID)," . 
 				" Title VARCHAR(100) NOT NULL, INDEX(Title), UNIQUE(Title)," .
-				" Description VARCHAR(3000) NOT NULL )";
+				" Description VARCHAR(3000) NOT NULL," .
+				" CreationDate DATE NOT NULL, INDEX(CreationDate)" .
+				" )";
 			echo "$taskTable";
 
 			$taskTableCom = $teamPdo->prepare($taskTable);
