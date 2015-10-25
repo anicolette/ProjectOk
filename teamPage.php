@@ -26,8 +26,9 @@
 		</form>
 		</br>
 		<form class="form" action="<?php echo 'addTask.php?&teamName='.$_GET['teamName'] ?>" method="post">
-			<label for="taskName">Task Name</label><input type="text" name="taskName" placeholder="Task Name"/></br>
-			<label for="taskDesc">Task Description</label><textarea name="taskDesc" cols=50 rows=6></textarea></br>
+			<label for="taskName">Task Name</label><input type="text" name="taskName" placeholder="Task Name" maxlength="100"/></br>
+			<label for="daysToComplete">Days to Complete</label><input type="number" name="daysToComplete" min="1" value="1"/></br>
+			<label for="taskDesc">Task Description</label><textarea name="taskDesc" maxlength="3000" cols=50 rows=6></textarea></br>
 			<input type="submit"/></br>
 		</form>
 	</body>

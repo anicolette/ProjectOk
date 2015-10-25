@@ -89,14 +89,14 @@
 	}
 
 	#Adds a task to a team's database
-	function addTask($teamName, $taskName, $taskDescription, $date){
+	function addTask($teamName, $taskName, $taskDescription, $date, $dueDate, $creator, $responsible){
 		error_reporting(E_ALL);
 		ini_set('display_errors', 1);
 		try{
 			$teamDb = teamLogin(spaceReplace($teamName));	
 				
-			$insertQuery = $teamDb->prepare("INSERT INTO TASKS (Title, Description, CreationDate) VALUES (?, ?, ?)");
-			$insertParams = array($taskName, $taskDescription, $date);
+			$insertQuery = $teamDb->prepare("INSERT INTO TASKS (Title, Description, CreationDate, DueDate, Creator, Responsible) VALUES (?, ?, ?, ?, ?, ?)");
+			$insertParams = array($taskName, $taskDescription, $date, $dueDate, $creator, $responsible);
 			$insertQuery->execute($insertParams);
 		} catch(Exception $e){
 			die($e);
@@ -225,7 +225,6 @@
 			$dbhost = "localhost";
 			$dbuser = "root";
 			$dbpassword = "projectok";
-			$dbname = "LOGINDB";
 	
 			$pdo = new PDO("mysql:host=$dbhost", $dbuser, $dbpassword);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -237,10 +236,6 @@
 			$create = $pdo->prepare($createQuery);
 			$create->execute();
 
-			#$switch = "USE $spaceReplacedTeamName";
-			#echo ($switch);
-			#$swtichCom = $pdo->prepare($switch);
-			#$switchCom->execute();
 			$teamPdo = new PDO("mysql:host=$dbhost;dbname=$spaceReplacedTeamName", $dbuser, $dbpassword);
 			$teamPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -248,7 +243,10 @@
 			$taskTable = "CREATE TABLE IF NOT EXISTS TASKS( TaskID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, INDEX(TaskID), UNIQUE(TaskID)," . 
 				" Title VARCHAR(100) NOT NULL, INDEX(Title), UNIQUE(Title)," .
 				" Description VARCHAR(3000) NOT NULL," .
-				" CreationDate DATE NOT NULL, INDEX(CreationDate)" .
+				" CreationDate DATE NOT NULL, INDEX(CreationDate)," .
+				" DueDate DATE NOT NULL, INDEX(DueDate)," .
+				" Creator VARCHAR(100), INDEX(Creator)," .
+				" Responsible VARCHAR(100), INDEX(Responsible)" . 
 				" )";
 			echo "$taskTable";
 
