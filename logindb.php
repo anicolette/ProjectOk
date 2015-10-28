@@ -5,7 +5,7 @@
 		$dbuser = "root";
 		$dbpassword = "projectok";
 		$dbname = "LOGINDB";
-
+	
 		$db = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpassword);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
