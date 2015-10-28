@@ -122,6 +122,28 @@
 		
 	}
 
+	#Assigns the given task to the given user
+	function assignTask($teamName, $username, $taskId){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));	
+
+			$assignQuery = "IF EXISTS (SELECT * FROM TASKS WHERE TASKS.TaskID=:taskId) ";
+			$assignQuery .= "BEGIN ";
+			$assignQuery .= "UPDATE TASKS SET TASKS.Responsible=:username WHERE TASKS.TaskId=:taskId ";
+			$assignQuery .= "END";
+
+			$assignParams = array(":taskId" => $taskId, ":username" => $username);
+
+			$assign = $teamDb->prepare($assignQuery);
+			$assign->execute($assignParams);
+
+		} catch(Exception $e){
+			die($e);
+		}
+	}
+
 	#Logs into a given team's database
 	function teamLogin($teamName){
 		error_reporting(E_ALL);

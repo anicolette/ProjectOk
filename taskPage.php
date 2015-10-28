@@ -23,10 +23,10 @@
         $tasks_array = json_decode($tasks,True);
         // Title, Description, CreationDate, DueDate, Creator, Responsible
         foreach ($tasks_array as $task) {
-            echo "<h3>" . $task['Title'] . " to be completed by " . $task['DueDate'] . "</h3>" .
+            echo "<h3>" . $task['Title'] . " to be completed by " . $task['DueDate'] . " by " . $task['Responsible']  . "</h3>" .
                 "<h4>Description:</h4>" . $task['Description'] .
                 "<br>" .
-                "<h5>Created on " . $task['CreationDate'] . " by " . $task['Responsible'] . "(person responsible?)</h5>";
+                "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>";
         }
     ?>
 <!--    Come back to this later to make page more responsive
