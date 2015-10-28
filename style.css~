@@ -89,7 +89,6 @@ body {
 }
 
 #profile {
-  margin: auto;
   line-height: 30px;
   background-color: #696969;
   border: 3px solid #3B3B3B;

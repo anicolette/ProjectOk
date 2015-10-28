@@ -11,7 +11,7 @@
 	}
 
 	if($password != $repeatPass){
-		die("passwords must match");
+		die("Location: error.php");
 	}
 
 	require("logindb.php");
