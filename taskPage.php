@@ -12,12 +12,14 @@
             echo $_GET['teamName'] . " Task List";
         ?>
     </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
+<body id="taskList">
     <h1>
         Tasks
     </h1>
+    <div id="tasks">
     <?php
         $tasks = getTasks($_GET['teamName']);
         $tasks_array = json_decode($tasks,True);
@@ -29,6 +31,7 @@
                 "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>";
         }
     ?>
+    </div>
 <!--    Come back to this later to make page more responsive
 <script>
     function loadTasks(){
@@ -53,5 +56,6 @@
     }
 </script>
 -->
+        </div>
 </body>
 </html>

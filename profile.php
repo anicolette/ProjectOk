@@ -26,7 +26,7 @@
 			?>
 
 		<form class="form" action="createTeam.php" method="post">
-			<label for="Create Team">Create Team</label><input type="text" name="teamName" placeholder="Team Name"/></br>
+			<label style="color: #E0F3ED; padding-right:10px;" for="Create Team">Create Team</label><input type="text" name="teamName" placeholder="Team Name"/></br>
 			<input type="submit"/></br>
 		</form>
 		<div id="TeamList"></div>
