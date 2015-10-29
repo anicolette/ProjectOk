@@ -31,6 +31,5 @@
 			<label for="taskDesc">Task Description</label><textarea name="taskDesc" maxlength="3000" cols=50 rows=6></textarea></br>
 			<input type="submit"/></br>
 		</form>
-		<a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>">View team tasks</a>
 	</body>
 </html>

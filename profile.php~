@@ -19,7 +19,7 @@
 	</head>
 
 	<body onload="loadTeams();">
-		<div id="profile" align="center">
+		<div id="profile">
 			<?php
 				$name = $_SESSION["username"];
 				echo "<div id=\"motto\">Welcome, $name!</div>";

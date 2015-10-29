@@ -8,7 +8,7 @@
 	<body>
 		<div id="outerlogin">
 		<div id="login">
-		<div id="motto">create a new account</div>
+		<div id="motto">Create a new account</div>
 		<form class="form" action="adduser.php" method="post">
 			<input type="text" id="username" name="username" placeholder="username" /></br>
 			<input type="text" id="email" name="email" placeholder="email" /></br>
