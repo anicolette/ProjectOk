@@ -10,6 +10,6 @@
 		<div id="login">
 		<div id="motto"><br />something went wrong! try again!
 		<?php echo "<script>setTimeout(\"window.location='index.html'\", 3000);</script>"; ?><br /><br />
-		You will be redirected in a few seconds....<br /><br /></div></div></div>
+		You eill be redirected in a few seconds....</div></div></div>
 	</body>
 </html>

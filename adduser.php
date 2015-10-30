@@ -7,11 +7,11 @@
 
 	#Verify inputs were valid
 	if(empty($username) || empty($password) || empty($repeatPass) || empty($email)){
-		die("All fields must be filled.");
+		echo "<script>setTimeout(\"window.location='error.php'\", 100);</script>";
 	}
 
 	if($password != $repeatPass){
-		die("passwords must match");
+		echo "<script>setTimeout(\"window.location='error.php'\", 100);</script>";
 	}
 
 	require("logindb.php");

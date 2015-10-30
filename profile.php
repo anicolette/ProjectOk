@@ -19,16 +19,22 @@
 	</head>
 
 	<body onload="loadTeams();">
-		<div id="profile" align="center">
+		<div>
 			<?php
 				$name = $_SESSION["username"];
-				echo "<div id=\"motto\">Welcome, $name!</div>";
+				echo "<div id=\"header\">Welcome, $name!</div>";
 			?>
 
-		<form class="form" action="createTeam.php" method="post">
-			<label style="color: #E0F3ED; padding-right:10px;" for="Create Team">Create Team</label><input type="text" name="teamName" placeholder="Team Name"/></br>
+		<div id="nav"><a href="index.html">home</a><br/>
+		<a href="profile.php">user panel</a></br>
+		<a href="login.php">login</a></div>
+
+		<div id="profinfo"><form class="form" action="createTeam.php" method="post"><br />
+			<label style="color: #E0F3ED; padding-right:10px;" for="Create Team">Create Team: </label><input type="text" name="teamName" placeholder="Team Name"/></br>
 			<input type="submit"/></br>
 		</form>
+		<br /><br />
+
 		<div id="TeamList"></div>
 
 		<script>
@@ -45,6 +51,7 @@
 						var htmlRes = "";
 						for(var row in res){
 							htmlRes += "<a href=\"teamPage.php?&teamName=" + res[row].TName + "\">" + res[row].TName + "</a></br>";
+							
 						}
 	
 						document.getElementById("TeamList").innerHTML = htmlRes;
@@ -54,6 +61,7 @@
 				req.send();
 			}
 		</script>
+		</div>
 		</div>
 	</body>
 </html>

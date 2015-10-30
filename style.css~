@@ -58,6 +58,10 @@ body {
 }
 
 #nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 900px;
   line-height: 30px;
   background-color: #696969;
   border-left: 3px solid #3B3B3B;
@@ -68,6 +72,22 @@ body {
   float: left;
   padding: 5px;
   text-align: center;
+}
+
+#navteam {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 900px;
+  line-height: 30px;
+  background-color: #696969;
+  border: 3px solid #3B3B3B;
+  height: 500px;
+  width: 10%;
+  float: left;
+  padding: 5px;
+  text-align: center;
+  margin-top: 5px;
 }
 
 #login {
@@ -89,12 +109,18 @@ body {
 }
 
 #profile {
+  margin: auto;
   line-height: 30px;
   background-color: #696969;
   border: 3px solid #3B3B3B;
   padding: 5px;
   text-align: center;
   width: 90%;
+}
+
+#profileCreateLabel {
+  color: #E0F3ED;
+  padding-right:15px;
 }
 
 #info {
@@ -104,6 +130,20 @@ body {
   padding: 10px;
   color: #3B3B3B;
   border: 0px solid #3B3B3B;
+  height: 300px;
+}
+
+#profinfo {
+  padding: 50px;
+  width: 87.45%;
+  float: left;
+  text-align: center;
+  padding: 10px;
+  color: #3B3B3B;
+  border-right: 3px solid #3B3B3B;
+  border-bottom: 3px solid #3B3B3B;
+  background: #696969;
+  height: 290px;
 }
 
 #footer {
@@ -114,4 +154,57 @@ body {
   clear: both;
   font-size: 10px;
   border: 1px solid #3B3B3B;
+}
+
+#teamPageBody {
+  vertical-align: top;
+  padding-left:50px;
+  padding-top:10px;
+}
+
+#teamPageOut {
+  line-height: 30px;
+  background-color: #696969;
+  border: 3px solid #3B3B3B;
+  padding: 5px;
+  height: 500px;
+  width: 98%;
+  margin: auto;
+  margin: 5px;
+}
+
+#addMemberTable {
+  background-color: #696969;
+  border: 5px solid #3B3B3B;
+  padding:15px;
+  color: #E0F3ED;
+}
+
+#createTaskTable {
+  background-color: #696969;
+  border: 5px solid #3B3B3B;
+  padding:15px;
+  color: #E0F3ED;
+}
+
+#taskList h1  {
+  font-style:italic;
+  background-color: #696969;
+  color: #E0F3ED;
+  padding:20px;
+  padding-left:100px;
+  border: 5px solid #3B3B3B;
+
+}
+
+#tasks {
+  background-color:#696969;
+  vertical-align: top;
+  padding:20px;
+  float: left;
+  border: 3px solid #3B3B3B;
+  margin: 0 auto;
+  color: #E0F3ED;
+  height: 470px;
+  width: 85.7%;
 }

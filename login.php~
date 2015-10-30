@@ -13,13 +13,14 @@
 	<body>
 		<div id="outerlogin">
 		<div id="login">
-		<div id="motto">Login to your account</div>
+		<div id="motto">login to your account</div>
 
 		<form class="form" action="processLogin.php" method="post">
 			<input type="text" name="username" placeholder="username"/></br>
 			<input type="password" name="password" placeholder="password"/></br>
 			<input type="submit"/></br>
 		</form>
-		<a href="newuser.php">Create a new account</a></div></div>
+		<a href="newuser.php">Create a new account</a>
+		<a href="index.html">Go back to the homepage</a></div></div></div>
 	</body>
 </html>

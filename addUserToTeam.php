@@ -5,26 +5,30 @@
 	verifyLogin();
 
 	if(!isset($_GET["teamName"])){	
-		echo "Invalid team\n";
-		echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+		echo "<script>setTimeout(\"window.location='error.php'\", 100);</script>";
+		#echo "Invalid team\n";
+		#echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
 		exit();
 	}
 
 	if(!verifyMembership($_GET["teamName"])){
-		echo "Invalid team\n";
-		echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+		echo "<script>setTimeout(\"window.location='error.php'\", 100);</script>";
+		#echo "Invalid team\n";
+		#echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
 		exit();
 	}
 
 	if(!isset($_POST["newMember"])){
-		echo "Must specify new team member\n";
-		echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+		echo "<script>setTimeout(\"window.location='error.php'\", 100);</script>";
+		#echo "Must specify new team member\n";
+		#echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
 		exit();
 	}
 
 	if(!verifyUser($_POST["newMember"])){
-		echo $_POST["newMember"] . " does not exist!\n";
-		echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+		echo "<script>setTimeout(\"window.location='error.php'\", 100);</script>";
+		#echo $_POST["newMember"] . " does not exist!\n";
+		#echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
 		exit();
 	}
 

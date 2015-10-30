@@ -20,6 +20,7 @@
 			<input type="password" name="password" placeholder="password"/></br>
 			<input type="submit"/></br>
 		</form>
-		<a href="newuser.php">Create a new account</a></div></div>
+		<a href="newuser.php">Create a new account</a><br />
+		<a href="index.html">Go back to the homepage</a></div></div></div>
 	</body>
 </html>

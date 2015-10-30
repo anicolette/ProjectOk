@@ -20,7 +20,7 @@
 	</head>
 	
 	<body id="teamPageBody">
-		<div id="header"><?php echo $_GET["teamName"]; ?></div>
+		<div id="header"><align="center"><?php echo $_GET["teamName"]; ?></align></div>
 		<div id="navteam"><a href="index.html">home</a><br/>
 		<a href="profile.php">user panel</a></br>
 		<a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>">tasks</a><br />
