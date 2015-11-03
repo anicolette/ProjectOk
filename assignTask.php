@@ -13,18 +13,18 @@
 	$username = $_POST["username"];
 	$taskId = $_POST["taskId"];
 
-	echo $teamName . "</br>" . $username . "</br>" . $taskId . "</br>";
-	die("Implement me!");
-
-
 	try{
 		#Verify that the given team name is valid (Someone could have spoofed the GET value and verify that the current user is a member of the given team
-		if(!verifyTeam($teamName) || !verifyMembership($teamName, $_SESSION["username"]) || !verifyMembership($username)){
-			echo "Invalid team\n";
-			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
-			exit();
+		if(!verifyTeam($teamName) || !isMemberOfTeam($_SESSION["username"], $teamName) || !isMemberOfTeam($username, $teamName)){
+			#echo "Invalid team\n";
+			#echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			#exit();
+			echo 0;
+		} else{
+
+			assignTask($teamName, $username, $taskId);	
+			echo 1;
 		}
-		
 		
 	}catch (Exception $e){
 		die($e);

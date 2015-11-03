@@ -13,6 +13,31 @@
         ?>
     </title>
     <link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript">
+
+		function assign(formObj){
+
+			var req;
+			if(window.XMLHttpRequest){
+				req = new XMLHttpRequest();
+			} else{
+				req = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			req.onreadystatechange = function request(){
+				console.log(req.readyState + " " + req.status + "\n" + req.responseText );
+				if(req.readyState == 4 && req.status == 200){
+					if(req.responseText=="0"){
+						alert("Invalid User!");
+					}			
+				}
+			}
+			req.open("post", "assignTask.php", false);
+    			req.send(new FormData(formObj));
+		}
+	</script>
+
 </head>
 
 <body id="taskList">
@@ -31,6 +56,14 @@
                 "<h4>Description:</h4>" . $task['Description'] .
                 "<br>" .
                 "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>";
+
+		$assignButton = "<form class=\"form\" accept-charset=utf-8 action=\"\" onsubmit=\"javascript:assign(this)\" method=\"post\"><label for=\"username\">Assign to user</label> ";
+                $assignButton .= "<input type=\"text\" name=\"username\" placeholder=\"username\" maxlength=\"100\"/>";
+                $assignButton .= "<input type=\"hidden\" name=\"taskId\" value=\"" . $task["TaskID"] . "\"/>";
+                $assignButton .= "<input type=\"hidden\" name=\"teamName\" value=\"" . $_GET["teamName"] . "\"/>";
+                $assignButton .= "<input type=\"submit\" value=\"Assign\" />";
+                $assignButton .= "</form>";
+		echo $assignButton;
         }
     ?>
     </div>
