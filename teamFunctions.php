@@ -270,7 +270,9 @@
 
 			$taskTableCom = $teamPdo->prepare($taskTable);
 			$taskTableCom->execute();
-			
+
+			createEventTable($teamPdo);
+
 		} catch (Exception $e){
 			die($e);
 		}
@@ -296,6 +298,52 @@
 		} catch(Exception $e){
 			die($e);
 		}
+	}
+
+	# Creates team's event table
+	function createEventTable($pdo) {
+		// Create table for team events
+		$eventTable = "CREATE TABLE IF NOT EXISTS EVENTS( EventId INT NOT NULL PRIMARY KEY AUTO_INCREMENT, INDEX(EventID), UNIQUE(EventID)," .
+			" Title VARCHAR(100) NOT NULL, INDEX(Title), UNIQUE(Title)," .
+			" Description VARCHAR(3000) NOT NULL," .
+			" CreationDate DATE NOT NULL, INDEX(CreationDate)," .
+			" DateOf DATE NOT NULL, INDEX(DateOf)," .
+			" Creator VARCHAR(100), INDEX(Creator)" .
+			" )";
+		echo "$eventTable";
+
+		$eventTableCom = $pdo->prepare($eventTable);
+		$eventTableCom->execute();
+	}
+
+	#Adds an event to a team's database
+	function addEvent($teamName, $eventTitle, $eventDescription, $date, $dateOf, $creator){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));
+
+			$insertQuery = $teamDb->prepare("INSERT INTO EVENTS (Title, Description, CreationDate, DateOf, Creator) VALUES (?, ?, ?, ?, ?)");
+			$insertParams = array($eventTitle, $eventDescription, $date, $dateOf, $creator);
+			$insertQuery->execute($insertParams);
+		} catch(Exception $e){
+			die($e);
+		}
+	}
+
+	function getEventsForUser($username) {
+
+		$getTeams = $db->prepare("SELECT DISTINCT TName from TEAM_MEMBERSHIP WHERE UName=:username"); #This may expand as we start storing more Team information
+		$getTeams->setFetchMode(PDO::FETCH_ASSOC);
+		$teamParam = array(":username" => $username);
+		$getTeams->execute($teamParam);
+
+		$resultList = $getTeams->fetchall();
+
+		foreach ($resultList as $team) {
+			echo $team;
+		}
+
 	}
 
 ?>

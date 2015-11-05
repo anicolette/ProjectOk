@@ -57,6 +57,25 @@
 			<input type="submit"/></br>
 
 		</form>
+		<form class="form" action="<?php echo 'addEvent.php?&teamName='.$_GET['teamName'] ?>" method="post">
+			<table id="createEventTable">
+				<tr>
+					<td><label for="eventName">Event Name</label></td>
+					<td><input type="text" name="eventName" placeholder="Event Name" maxlength="100"/></td>
+				</tr>
+				<tr>
+					<!-- TODO: Add calendar for selecting date of event -->
+					<td><label for="daysUntilEvent">Days to Complete</label></td>
+					<td><input type="number" name="daysUntilEvent" min="1" value="1"/></td>
+				</tr>
+				<tr>
+					<td><label for="eventDesc">Event Description</label></td>
+					<td><textarea name="eventDesc" maxlength="3000" cols=50 rows=6></textarea></td>
+				</tr>
+			</table>
+			<input type="submit"/></br>
+
+		</form>
 		</div></div>
 	</body>
 </html>
