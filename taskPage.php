@@ -55,7 +55,8 @@
             echo "<h3>" . $task['Title'] . " to be completed by " . $task['DueDate'] . " by " . $task['Responsible']  . "</h3>" .
                 "<h4>Description:</h4>" . $task['Description'] .
                 "<br>" .
-                "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>";
+                "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>" . 
+		"<h5>Finished: " . ($task['Finished'] == 'Y' ? "Yes" : "No") . "</h5>";
 
 		$assignButton = "<form class=\"form\" accept-charset=utf-8 action=\"\" onsubmit=\"javascript:assign(this)\" method=\"post\"><label for=\"username\">Assign to user</label> ";
                 $assignButton .= "<input type=\"text\" name=\"username\" placeholder=\"username\" maxlength=\"100\"/>";

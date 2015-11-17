@@ -122,6 +122,44 @@
 		
 	}
 
+	#Gets all the incompleted tasks from a team's database and returns the JSON representation
+	function getTasksByCompletion($teamName, $completed){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));	
+
+			$taskQ = $teamDb->prepare("SELECT * FROM TASKS WHERE FINISHED='" . ($completed ? 'Y' : 'N')  . "'");
+			$taskQ->setFetchMode(PDO::FETCH_ASSOC);
+			$taskQ->execute();
+
+			$taskList = $taskQ->fetchAll();
+			return (json_encode($taskList));
+		} catch(Exception $e){
+			die($e);
+		}	
+	}
+
+	#Gets all the tasks that a given user is responsible for from a team's database and returns the JSON representation
+	function getTasksForUser($teamName, $username){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));	
+
+			$taskQ = $teamDb->prepare("SELECT * FROM TASKS WHERE TASKS.Responsible=:username");
+			$taskParams = array(":username" => $username);
+			$taskQ->setFetchMode(PDO::FETCH_ASSOC);
+			$taskQ->execute($taskParams);
+
+			$taskList = $taskQ->fetchAll();
+			return (json_encode($taskList));
+		} catch(Exception $e){
+			die($e);
+		}
+		
+	}
+
 	#Assigns the given task to the given user
 	function assignTask($teamName, $username, $taskId){
 		error_reporting(E_ALL);
@@ -264,7 +302,8 @@
 				" CreationDate DATE NOT NULL, INDEX(CreationDate)," .
 				" DueDate DATE NOT NULL, INDEX(DueDate)," .
 				" Creator VARCHAR(100), INDEX(Creator)," .
-				" Responsible VARCHAR(100), INDEX(Responsible)" . 
+				" Responsible VARCHAR(100), INDEX(Responsible)," . 
+				" Finished CHAR NOT NULL DEFAULT 'N' " .
 				" )";
 			echo "$taskTable";
 
