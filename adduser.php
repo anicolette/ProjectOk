@@ -17,12 +17,24 @@
 	require("logindb.php");
 
 	try{
+		#Check if username is taken
 		$check_username_query = $db->prepare("SELECT * FROM USERS where Name= :username");
 		$params = array(":username" => $username);
 		$check_username_query->execute($params);
 		$row = $check_username_query->fetch();
 		if($row[0]){
 			echo "Username is taken\n";
+			echo "<script>setTimeout(\"window.location='newuser.php'\", 3000);</script>";
+			exit();
+		}
+
+		#Check if email is taken
+		$check_email_query = $db->prepare("SELECT * FROM USERS WHERE Email=:email");
+		$emailParams = array(":email" => $email);
+		$check_email_query->execute($emailParams);
+		$emailRow = $check_email_query->fetch();
+		if($emailRow[0]){
+			echo "Email is taken\n";
 			echo "<script>setTimeout(\"window.location='newuser.php'\", 3000);</script>";
 			exit();
 		}
