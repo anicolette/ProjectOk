@@ -14,5 +14,5 @@
 
 	#Get the username from the session and get the team names
 	$username = $_SESSION["username"];
-	getTeamsForUser($username);	
+	echo getTeamsForUser($username);
 ?>

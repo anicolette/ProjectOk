@@ -11,5 +11,18 @@
 
     #Get the username from the session and get the team names
     $username = $_SESSION["username"];
-    getEventsForUser($username);
+    $teamWithEvents = json_decode(getEventsForUser($username), true);
+    foreach($teamWithEvents as $teamWithEvent) {
+        if ($teamWithEvent[1] != []) {
+            echo $teamWithEvent[0] . "</br>";
+            foreach ($teamWithEvent[1] as $event) {
+                // Title, Description, CreationDate, DateOf, Creator
+                echo $event['Title'] . "</br>"
+                    . $event['Description'] . "</br>"
+                    . $event['CreationDate'] . "</br>"
+                    . $event['DateOf'] . "</br>"
+                    . $event['Creator'] . "</br>";
+            }
+        }
+    }
 ?>

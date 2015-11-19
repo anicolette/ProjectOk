@@ -333,7 +333,7 @@
 			$getTeams->execute($teamParam);		
 	
 			$resultList = $getTeams->fetchall();
-			echo json_encode($resultList);
+			return json_encode($resultList);
 		} catch(Exception $e){
 			die($e);
 		}
@@ -372,17 +372,31 @@
 
 	function getEventsForUser($username) {
 
-		$getTeams = $db->prepare("SELECT DISTINCT TName from TEAM_MEMBERSHIP WHERE UName=:username"); #This may expand as we start storing more Team information
-		$getTeams->setFetchMode(PDO::FETCH_ASSOC);
-		$teamParam = array(":username" => $username);
-		$getTeams->execute($teamParam);
+		$teams = json_decode(getTeamsForUser($username), true);
+		$userEvents = [];
 
-		$resultList = $getTeams->fetchall();
-
-		foreach ($resultList as $team) {
-			echo $team;
+		foreach($teams as $team) {
+			array_push($userEvents, array($team['TName'], json_decode(getTeamEvents($team['TName']), true)));
 		}
 
+		return json_encode($userEvents);
+	}
+
+	function getTeamEvents($teamName) {
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+
+		try {
+			$teamDb = teamLogin(spaceReplace($teamName));
+			$getEvents = $teamDb->prepare("SELECT * FROM EVENTS");
+			$getEvents->setFetchMode(PDO::FETCH_ASSOC);
+			$getEvents->execute();
+
+			return json_encode($getEvents->fetchAll());
+
+		} catch (Exception $e) {
+			die($e);
+		}
 	}
 
 ?>

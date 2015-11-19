@@ -28,6 +28,7 @@
 		<div id="nav"><a href="index.html">home</a><br/>
 		<a href="profile.php">user panel</a></br>
 		<a href="login.php">login</a></div>
+		<a href="getEventsForUser.php">events</a>
 
 		<div id="upcomingEvents"></div>
 
@@ -62,7 +63,7 @@
 				req.open("post", "getTeamsForUser.php");
 				req.send();
 			}
-			function loadEvents(){
+			/*function loadEvents(){
 				var req;
 				if(window.XMLHttpRequest){
 					req = new XMLHttpRequest();
@@ -83,7 +84,7 @@
 				}
 				req.open("post", "getEventsForUser.php");
 				req.send();
-			}
+			}*/
 		</script>
 		</div>
 		</div>
