@@ -20,7 +20,7 @@ verifyLogin();
 	verifyLogin();
 
 	$teamName = $_GET["teamName"];
-	$taskUser = $_POST["taskUser"];
+	$username = $_GET["username"];
 	?>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
@@ -46,6 +46,28 @@ verifyLogin();
 			req.open("post", "assignTask.php", false);
 			req.send(new FormData(formObj));
 		}
+
+		function setComplete(formObj){
+			console.log("setComplete called\n");
+
+			var req;
+			if(window.XMLHttpRequest){
+				req = new XMLHttpRequest();
+			} else{
+				req = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			req.onreadystatechange = function request(){
+				console.log(req.readyState + " " + req.status + "\n" + req.responseText );
+				if(req.readyState == 4 && req.status == 200){
+					if(req.responseText=="0"){
+						alert("Invalid User!");
+					}			
+				}
+			}
+			req.open("post", "setTaskCompletion.php", false);
+    			req.send(new FormData(formObj));
+		}
 	</script>
 
 </head>
@@ -60,9 +82,10 @@ verifyLogin();
 	<?php
 	try{
 		#Verify that a user was provided through POST
-		if(empty($_POST["taskUser"]) ){
+		if(empty($_GET["username"]) ){
 			echo "Must fill out all fields\n";
-			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			echo $username;
+			#echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
 			exit();
 		}
 
@@ -92,14 +115,14 @@ verifyLogin();
 		}
 
 		#Verify that the given user is a member of the given team
-		$userRes = isMemberOfTeam($taskUser, $teamName);
+		$userRes = isMemberOfTeam($username, $teamName);
 		if(!$userRes){
 			echo "Invalid team\n";
 			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
 			exit();
 		}
 
-		$tasks = getTasksForUser($teamName,$taskUser);
+		$tasks = getTasksForUser($teamName,$username);
 		$tasks_array = json_decode($tasks,True);
 
 
@@ -121,6 +144,13 @@ verifyLogin();
 		$assignButton .= "<input type=\"submit\" value=\"Assign\" />";
 		$assignButton .= "</form>";
 		echo $assignButton;
+
+		$setCompleteButton = "<form class=\"form\" accept-charset=utf-8 action=\"\" onsubmit=\"javascript:setComplete(this)\" method=\"post\">";
+		$setCompleteButton .= "<input type=\"hidden\" name=\"teamName\" value=\"" . $_GET["teamName"]  ."\"/>";
+		$setCompleteButton .= "<input type=\"hidden\" name=\"taskId\" value=\"" . $task["TaskID"]  .  "\"/>";
+		$setCompleteButton .= "<input type=\"hidden\" name=\"completed\" value=\"" . ($task["Finished"] == 'Y' ? "0" : "1")  . "\"/>";
+		$setCompleteButton .= "<input type=\"submit\" value=\"Set " . ($task["Finished"] == 'N' ? "Complete" : "Incomplete") . "\"/>";
+		echo $setCompleteButton;
 	}
 	?>
 </div>

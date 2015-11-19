@@ -78,13 +78,15 @@
 		</form>
 		</div></div>
 		</br>
-		<form action="<?php echo 'getTeamTasksForUser.php?&teamName=' . $_GET['teamName'] ?>" method="post">
-			<input type="hidden" name="taskUser" value="<?php echo $_SESSION['username']?>"/>
+		<form action="getTeamTasksForUser.php" method="get">
+			<input type="hidden" name="username" value="<?php echo $_SESSION['username']?>"/>
+			<input type="hidden" name="teamName" value="<?php echo $_GET['teamName']   ?>"/>
 			<input type="submit" value="View my tasks"/>
 		</form>
 		</br>
-		<form action="<?php echo 'getTeamTasksForUser.php?&teamName=' . $_GET['teamName'] ?>" method="post">
-			<input type="text" name="taskUser" placeholder="Username" maxlength="100"/>
+		<form action="getTeamTasksForUser.php" method="get">
+			<input type="text" name="username" placeholder="Username" maxlength="100"/>
+			<input type="hidden" name="teamName" value="<?php echo $_GET['teamName']  ?>"/>
 			<input type="submit" value="View user's tasks"/>
 		</form>
 
