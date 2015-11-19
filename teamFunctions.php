@@ -140,6 +140,23 @@
 		}	
 	}
 
+	#Change the completion status of a task
+	function setTaskCompletion($teamName, $taskNo, $completed){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));	
+
+			$taskQ = $teamDb->prepare("UPDATE TASKS SET FINISHED='" . ($completed ? 'Y' : 'N')  . "' WHERE TASKS.TaskID=:taskId" );
+			$taskQP = array(":taskId" => $taskNo);
+			$taskQ->setFetchMode(PDO::FETCH_ASSOC);
+			$taskQ->execute($taskQP);
+
+		} catch(Exception $e){
+			die($e);
+		}	
+	}
+
 	#Gets all the tasks that a given user is responsible for from a team's database and returns the JSON representation
 	function getTasksForUser($teamName, $username){
 		error_reporting(E_ALL);

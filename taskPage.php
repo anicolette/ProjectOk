@@ -17,6 +17,7 @@
 	<script type="text/javascript">
 
 		function assign(formObj){
+			console.log("assign called\n");
 
 			var req;
 			if(window.XMLHttpRequest){
@@ -34,6 +35,29 @@
 				}
 			}
 			req.open("post", "assignTask.php", false);
+    			req.send(new FormData(formObj));
+		}
+
+		
+		function setComplete(formObj){
+			console.log("setComplete called\n");
+
+			var req;
+			if(window.XMLHttpRequest){
+				req = new XMLHttpRequest();
+			} else{
+				req = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			req.onreadystatechange = function request(){
+				console.log(req.readyState + " " + req.status + "\n" + req.responseText );
+				if(req.readyState == 4 && req.status == 200){
+					if(req.responseText=="0"){
+						alert("Invalid User!");
+					}			
+				}
+			}
+			req.open("post", "setTaskCompletion.php", false);
     			req.send(new FormData(formObj));
 		}
 	</script>
@@ -65,6 +89,13 @@
                 $assignButton .= "<input type=\"submit\" value=\"Assign\" />";
                 $assignButton .= "</form>";
 		echo $assignButton;
+
+		$setCompleteButton = "<form class=\"form\" accept-charset=utf-8 action=\"\" onsubmit=\"javascript:setComplete(this)\" method=\"post\">";
+		$setCompleteButton .= "<input type=\"hidden\" name=\"teamName\" value=\"" . $_GET["teamName"]  ."\"/>";
+		$setCompleteButton .= "<input type=\"hidden\" name=\"taskId\" value=\"" . $task["TaskID"]  .  "\"/>";
+		$setCompleteButton .= "<input type=\"hidden\" name=\"completed\" value=\"" . ($task["Finished"] == 'Y' ? "0" : "1")  . "\"/>";
+		$setCompleteButton .= "<input type=\"submit\" value=\"Set " . ($task["Finished"] == 'N' ? "Complete" : "Incomplete") . "\"/>";
+		echo $setCompleteButton;
         }
     ?>
     </div>
