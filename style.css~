@@ -260,8 +260,8 @@ li a:hover {
 #tasks {
   background-color:#696969;
   vertical-align: top;
-  padding:20px;
-  /*float: left;
+  /*padding:20px;
+  float: left;
   margin-top: 5px;
   margin: 0 auto;
   width: 100%;*/

@@ -27,7 +27,7 @@
 
 <body id="taskList">
 <div id="header">Events</div>
-	<ul style="border: 1px solid #3B3B3B;">
+<ul style="border: 1px solid #3B3B3B;">
 		<li><a href="index.html">home</a></li>
 		<li><a href="profile.php">user panel</a></li>
 		<li><a href="getEventsForUser.php">events</a></li>

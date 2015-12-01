@@ -96,10 +96,15 @@ verifyLogin();
 
 <body id="taskList">
 <div id="header">Tasks</div>
-<div id="navteam"><a href="index.html">home</a><br/>
-	<a href="profile.php">user panel</a></br>
-	<a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>">tasks</a><br />
-	<a href="login.php">login</a></div>
+<ul style="border: 1px solid #3B3B3B;">
+		<li><a href="index.html">home</a></li>
+		<li><a href="profile.php">user panel</a></li>
+		<li><a href="getEventsForUser.php">events</a></li>
+		<ul style="float:right; list-style-type:none;">
+			<li><a href="login.php">login</a></li>
+			<li><a href="newuser.php">register</a></li>
+		</ul>
+	  </ul>
 <div id="tasks">
 	<?php
 	try{

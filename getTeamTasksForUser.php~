@@ -1,23 +1,32 @@
 <?php
-    require_once("teamFunctions.php");
-    // User must be logged in to view team tasks
-    verifyLogin();
+require_once("teamFunctions.php");
+// User must be logged in to view team tasks
+verifyLogin();
 ?>
 
 <!doctype html>
 <html>
 <head>
-    <title>
-        <?php
-            echo $_GET['teamName'] . " Task List";
-        ?>
-    </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+	<title>
+		<?php
+		echo $_GET['teamName'] . " Task List";
+		?>
+	</title>
+	<?php
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+
+	require_once("teamFunctions.php");
+	verifyLogin();
+
+	$teamName = $_GET["teamName"];
+	$username = $_GET["username"];
+	?>
+	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<script type="text/javascript">
 
 		function assign(formObj){
-			console.log("assign called\n");
 
 			var req;
 			if(window.XMLHttpRequest){
@@ -31,14 +40,13 @@
 				if(req.readyState == 4 && req.status == 200){
 					if(req.responseText=="0"){
 						alert("Invalid User!");
-					}			
+					}
 				}
 			}
 			req.open("post", "assignTask.php", false);
-    			req.send(new FormData(formObj));
+			req.send(new FormData(formObj));
 		}
 
-		
 		function setComplete(formObj){
 			console.log("setComplete called\n");
 
@@ -54,7 +62,7 @@
 				if(req.readyState == 4 && req.status == 200){
 					if(req.responseText=="0"){
 						alert("Invalid User!");
-					}			
+					}
 				}
 			}
 			req.open("post", "setTaskCompletion.php", false);
@@ -76,7 +84,7 @@
 				if(req.readyState == 4 && req.status == 200){
 					if(req.responseText=="0"){
 						alert("Invalid User!");
-					}			
+					}
 				}
 			}
 			req.open("post", "addTag.php", false);
@@ -87,36 +95,73 @@
 </head>
 
 <body id="taskList">
-    <div id="header">Tasks</div>
-	<ul style="border: 1px solid #3B3B3B;">
-		<li><a href="index.html">home</a></li>
-		<li><a href="profile.php">user panel</a></li>
-		<li><a href="<?php echo 'teamPage.php?&teamName='.$_GET['teamName'] ?>">team page</a></li>
-		<li><a href="getEventsForUser.php">events</a></li>
-		<ul style="float:right; list-style-type:none;">
-			<li><a href="login.php">login</a></li>
-			<li><a href="newuser.php">register</a></li>
-		</ul>
-	  </ul>
-	<!--
-	<div id="navtasks"><a href="index.html">home</a><br/>
-		<a href="profile.php">user panel</a></br>
-		<a href="<?php echo 'teamPage.php?&teamName='.$_GET['teamName'] ?>">team page</a><br />
-		<a href="login.php">login</a></div>-->
-    <div id="tasks">
-    <?php
-        $tasks = getTasks($_GET['teamName']);
-        $tasks_array = json_decode($tasks,True);
-        // Title, Description, CreationDate, DueDate, Creator, Responsible
-        foreach ($tasks_array as $task) {
-            echo "<h3>" . $task['Title'] . " to be completed by " . $task['DueDate'] . " by " . $task['Responsible']  . "</h3>" .
-                "<h4>Description:</h4>" . "<p style='padding-left:20px;'>" . $task['Description'] . "</p>" .
+<div id="header">Tasks</div>
+<div id="navteam"><a href="index.html">home</a><br/>
+	<a href="profile.php">user panel</a></br>
+	<a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>">tasks</a><br />
+	<a href="login.php">login</a></div>
+<div id="tasks">
+	<?php
+	try{
+		#Verify that a user was provided through POST
+		if(empty($_GET["username"]) ){
+			echo "Must fill out all fields\n";
+			echo $username;
+			#echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			exit();
+		}
+
+
+		#Verify that the given team name is valid (Someone could have spoofed the GET value)
+		$nameRes = verifyTeam($teamName);
+		if(!$nameRes){
+			echo "Invalid team\n";
+			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			exit();
+		}
+
+		#Verify that the current user is a member of the given team
+		$memberRes = verifyMembership($teamName);
+		if(!$memberRes){
+			echo "Invalid team\n";
+			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			exit();
+		}
+
+		#Verify that the current user is a member of the given team
+		$memberRes = verifyMembership($teamName);
+		if(!$memberRes){
+			echo "Invalid team\n";
+			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			exit();
+		}
+
+		#Verify that the given user is a member of the given team
+		$userRes = isMemberOfTeam($username, $teamName);
+		if(!$userRes){
+			echo "Invalid team\n";
+			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			exit();
+		}
+
+		$tasks = getTasksForUser($teamName,$username);
+		$tasks_array = json_decode($tasks,True);
+
+
+	}catch (Exception $e){
+		die($e);
+	}
+	// Title, Description, CreationDate, DueDate, Creator, Responsible
+	foreach ($tasks_array as $task) {
+
+           	 echo "<h3>" . $task['Title'] . " to be completed by " . $task['DueDate'] . " by " . $task['Responsible']  . "</h3>" .
+                "<h4>Description:</h4>" . $task['Description'] .
                 "<br>" .
-                "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>" . 
-		"<h5>Finished: " . ($task['Finished'] == 'Y' ? "Yes" : "No") . "</h5>" . 
+                "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>" .
+		"<h5>Finished: " . ($task['Finished'] == 'Y' ? "Yes" : "No") . "</h5>" .
 		"Tags:</br>";
 		$tags = getTags($_GET['teamName'], $task['TaskID']);
-		$tags_array = json_decode($tags,True); 
+		$tags_array = json_decode($tags,True);
 		foreach($tags_array as $tag){
 			echo "\"" . $tag['Tag'] . "\"     ";
 		}
@@ -147,9 +192,9 @@
 		$addTagButton .= "</form>";
 		echo $addTagButton;
 
-        }
-    ?>
-    </div>
-	</div>
+	}
+	?>
+</div>
+</div>
 </body>
 </html>

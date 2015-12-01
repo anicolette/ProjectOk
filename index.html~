@@ -8,7 +8,7 @@
 	  <div id="header">Welcome to Project OK
 		<p id="motto">Where we strive to make you simply OK</p>
 	  </div>
-	  <ul style="border: 1px solid #3B3B3B;">
+	  <ul>
 		<li><a href="index.html">home</a></li>
 		<li><a href="profile.php">user panel</a></li>
 		<ul style="float:right; list-style-type:none;">

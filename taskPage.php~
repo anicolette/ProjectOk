@@ -88,21 +88,10 @@
 
 <body id="taskList">
     <div id="header">Tasks</div>
-	<ul style="border: 1px solid #3B3B3B;">
-		<li><a href="index.html">home</a></li>
-		<li><a href="profile.php">user panel</a></li>
-		<li><a href="<?php echo 'teamPage.php?&teamName='.$_GET['teamName'] ?>">team page</a></li>
-		<li><a href="getEventsForUser.php">events</a></li>
-		<ul style="float:right; list-style-type:none;">
-			<li><a href="login.php">login</a></li>
-			<li><a href="newuser.php">register</a></li>
-		</ul>
-	  </ul>
-	<!--
 	<div id="navtasks"><a href="index.html">home</a><br/>
 		<a href="profile.php">user panel</a></br>
 		<a href="<?php echo 'teamPage.php?&teamName='.$_GET['teamName'] ?>">team page</a><br />
-		<a href="login.php">login</a></div>-->
+		<a href="login.php">login</a></div>
     <div id="tasks">
     <?php
         $tasks = getTasks($_GET['teamName']);
