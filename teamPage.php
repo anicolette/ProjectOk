@@ -27,14 +27,16 @@ if(!isset($_GET["teamName"]) || !verifyMembership($_GET["teamName"])){
 <div id="teamPageOut" align="center">
     <div id="teamPageForms">
 
-        <form action="<?php echo 'getTeamTasksForUser.php?&teamName=' . $_GET['teamName'] ?>" method="post">
-            <input type="hidden" name="taskUser" value="<?php echo $_SESSION['username']?>"/>
+        <form action="getTeamTasksForUser.php" method="get">
+		<input type="hidden" name="teamName" value="<?php echo $_GET['teamName'] ?>"/>
+            <input type="hidden" name="username" value="<?php echo $_SESSION['username']?>"/>
             <input type="submit" value="View my tasks for this team!"/>
         </form>
         </br>
 
-        <form action="<?php echo 'getTeamTasksForUser.php?&teamName=' . $_GET['teamName'] ?>" method="post">
-            <input type="text" name="taskUser" placeholder="Username" maxlength="100"/>
+        <form action="getTeamTasksForUser.php" method="get">
+		<input type="hidden" name="teamName" value="<?php echo $_GET['teamName'] ?>"/>
+            <input type="text" name="username" placeholder="Username" maxlength="100"/>
             <input type="submit" value="View user's tasks"/>
         </form>
 
