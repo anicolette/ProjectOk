@@ -82,7 +82,7 @@ body {
   line-height: 30px;
   background-color: #696969;
   border: 3px solid #3B3B3B;
-  height: 500px;
+  height: 528px;
   width: 10%;
   float: left;
   padding: 5px;
@@ -167,7 +167,7 @@ body {
   background-color: #696969;
   border: 3px solid #3B3B3B;
   padding: 5px;
-  height: 500px;
+  height: 100%;
   width: 98%;
   margin: auto;
   margin: 5px;
@@ -185,6 +185,14 @@ body {
   border: 5px solid #3B3B3B;
   padding:15px;
   color: #E0F3ED;
+  float:right;
+}
+
+#createEventTable {
+    background-color: #696969;
+    border: 5px solid #3B3B3B;
+    padding:15px;
+    color: #E0F3ED;
 }
 
 #taskList h1  {
