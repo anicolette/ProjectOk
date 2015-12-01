@@ -36,9 +36,11 @@
 
 		<div id="profinfo">
 
+		<h2 style="color:#E0F3ED;">Teams</h2>
 		<div id="TeamList"></div>
 		<form class="form" action="createTeam.php" method="post"><br />
-			<label style="color: #E0F3ED; padding-right:10px;" for="Create Team">Create New Team: </label><input type="text" name="teamName" placeholder="Team Name"/></br>
+			<label style="color: #E0F3ED; padding-right:10px;" for="Create Team">Create New Team: </label><input type="text" name="teamName" placeholder="Team Name"/>
+			</br></br>
 			<input type="submit"/></br>
 		</form>
 		<br /><br />
@@ -68,28 +70,6 @@
 				req.open("post", "getTeamsForUser.php");
 				req.send();
 			}
-			/*function loadEvents(){
-				var req;
-				if(window.XMLHttpRequest){
-					req = new XMLHttpRequest();
-				} else{
-					req = new ActiveXObject("Microsoft.XMLHTTP");
-				}
-				req.onreadystatechange = function request(){
-					if(req.readyState == 4 && req.status == 200){
-						var res = JSON.parse(req.responseText);
-						var htmlRes = "";
-						for(var row in res){
-							htmlRes += "<a>" + res[row].EName + "</a></br>";
-
-						}
-
-						document.getElementById("upcomingEvents").innerHTML = htmlRes;
-					}
-				}
-				req.open("post", "getEventsForUser.php");
-				req.send();
-			}*/
 		</script>
 		</div>
 		</div>

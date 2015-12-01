@@ -37,8 +37,8 @@
             echo "<h1>" . $teamWithEvent[0] . "</h1></br>";
             foreach ($teamWithEvent[1] as $event) {
                 // Title, Description, CreationDate, DateOf, Creator
-                echo "<h2>" . $event['Title'] . "</h2></br>"
-                    . $event['Description'] . "</br>"
+                echo "<h2>" . $event['Title'] . "</h2>"
+                    . "<p style='padding-left:20px;'>" . $event['Description'] . "</p>"
                     . "Created: "  . $event['CreationDate'] . "</br>"
                     . "Date of: " . $event['DateOf'] . "</br>"
                     . "Created by: " . $event['Creator'] . "</br>";

@@ -88,7 +88,7 @@
 
 <body id="taskList">
     <div id="header">Tasks</div>
-	<div id="navteam"><a href="index.html">home</a><br/>
+	<div id="navtasks"><a href="index.html">home</a><br/>
 		<a href="profile.php">user panel</a></br>
 		<a href="<?php echo 'teamPage.php?&teamName='.$_GET['teamName'] ?>">team page</a><br />
 		<a href="login.php">login</a></div>
@@ -99,7 +99,7 @@
         // Title, Description, CreationDate, DueDate, Creator, Responsible
         foreach ($tasks_array as $task) {
             echo "<h3>" . $task['Title'] . " to be completed by " . $task['DueDate'] . " by " . $task['Responsible']  . "</h3>" .
-                "<h4>Description:</h4>" . $task['Description'] .
+                "<h4>Description:</h4>" . "<p style='padding-left:20px;'>" . $task['Description'] . "</p>" .
                 "<br>" .
                 "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>" . 
 		"<h5>Finished: " . ($task['Finished'] == 'Y' ? "Yes" : "No") . "</h5>" . 
