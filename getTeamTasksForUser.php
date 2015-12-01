@@ -62,7 +62,7 @@ verifyLogin();
 				if(req.readyState == 4 && req.status == 200){
 					if(req.responseText=="0"){
 						alert("Invalid User!");
-					}			
+					}
 				}
 			}
 			req.open("post", "setTaskCompletion.php", false);
@@ -84,7 +84,7 @@ verifyLogin();
 				if(req.readyState == 4 && req.status == 200){
 					if(req.responseText=="0"){
 						alert("Invalid User!");
-					}			
+					}
 				}
 			}
 			req.open("post", "addTag.php", false);
@@ -153,15 +153,15 @@ verifyLogin();
 	}
 	// Title, Description, CreationDate, DueDate, Creator, Responsible
 	foreach ($tasks_array as $task) {
-	
+
            	 echo "<h3>" . $task['Title'] . " to be completed by " . $task['DueDate'] . " by " . $task['Responsible']  . "</h3>" .
                 "<h4>Description:</h4>" . $task['Description'] .
                 "<br>" .
-                "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>" . 
-		"<h5>Finished: " . ($task['Finished'] == 'Y' ? "Yes" : "No") . "</h5>" . 
+                "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>" .
+		"<h5>Finished: " . ($task['Finished'] == 'Y' ? "Yes" : "No") . "</h5>" .
 		"Tags:</br>";
 		$tags = getTags($_GET['teamName'], $task['TaskID']);
-		$tags_array = json_decode($tags,True); 
+		$tags_array = json_decode($tags,True);
 		foreach($tags_array as $tag){
 			echo "\"" . $tag['Tag'] . "\"     ";
 		}

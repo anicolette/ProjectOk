@@ -19,6 +19,7 @@
 	</head>
 
 	<body onload="loadTeams();">
+
 		<div>
 			<?php
 				$name = $_SESSION["username"];
@@ -27,18 +28,22 @@
 
 		<div id="nav"><a href="index.html">home</a><br/>
 		<a href="profile.php">user panel</a></br>
+		<a href="getEventsForUser.php">events</a></br>
 		<a href="login.php">login</a></div>
-		<a href="getEventsForUser.php">events</a>
+
 
 		<div id="upcomingEvents"></div>
 
-		<div id="profinfo"><form class="form" action="createTeam.php" method="post"><br />
+		<div id="profinfo">
+
+		<div id="TeamList"></div>
+		<form class="form" action="createTeam.php" method="post"><br />
 			<label style="color: #E0F3ED; padding-right:10px;" for="Create Team">Create New Team: </label><input type="text" name="teamName" placeholder="Team Name"/></br>
 			<input type="submit"/></br>
 		</form>
 		<br /><br />
 
-		<div id="TeamList"></div>
+
 
 		<script>
 			function loadTeams(){

@@ -90,7 +90,7 @@
     <div id="header">Tasks</div>
 	<div id="navteam"><a href="index.html">home</a><br/>
 		<a href="profile.php">user panel</a></br>
-		<a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>">tasks</a><br />
+		<a href="<?php echo 'teamPage.php?&teamName='.$_GET['teamName'] ?>">team page</a><br />
 		<a href="login.php">login</a></div>
     <div id="tasks">
     <?php
@@ -139,30 +139,6 @@
         }
     ?>
     </div>
-<!--    Come back to this later to make page more responsive
-<script>
-    function loadTasks(){
-        var req;
-        if(window.XMLHttpRequest){
-            req = new XMLHttpRequest();
-        } else{
-            req = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        req.onreadystatechange = function request(){
-            if(req.readyState == 4 && req.status == 200){
-                var res = JSON.parse(req.responseText);
-                var htmlRes = "";
-                for(var row in res){
-                    htmlRes += "<a href=\"teamPage.php?&teamName=" + res[row].TName + "\">" + res[row].TName + "</a></br>";
-                }
-                document.getElementById("TeamList").innerHTML = htmlRes;
-            }
-        }
-        req.open("post", "getTasksForTeam.php?&teamName=" + getUrlVars()["teamName"]);
-        req.send();
-    }
-</script>
--->
-        </div>
+	</div>
 </body>
 </html>

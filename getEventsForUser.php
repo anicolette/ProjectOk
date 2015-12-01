@@ -12,17 +12,41 @@
     #Get the username from the session and get the team names
     $username = $_SESSION["username"];
     $teamWithEvents = json_decode(getEventsForUser($username), true);
+?>
+
+<!doctype html>
+<html>
+<head>
+    <title>
+        <?php
+        echo $_GET['teamName'] . " Task List";
+        ?>
+    </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body id="taskList">
+<div id="header">Events</div>
+<div id="navevents"><a href="index.html">home</a><br/>
+    <a href="profile.php">user panel</a></br>
+    <a href="login.php">login</a></div>
+<div id="events">
+    <?php
     foreach($teamWithEvents as $teamWithEvent) {
         if ($teamWithEvent[1] != []) {
-            echo $teamWithEvent[0] . "</br>";
+            echo "<h1>" . $teamWithEvent[0] . "</h1></br>";
             foreach ($teamWithEvent[1] as $event) {
                 // Title, Description, CreationDate, DateOf, Creator
-                echo $event['Title'] . "</br>"
+                echo "<h2>" . $event['Title'] . "</h2></br>"
                     . $event['Description'] . "</br>"
-                    . $event['CreationDate'] . "</br>"
-                    . $event['DateOf'] . "</br>"
-                    . $event['Creator'] . "</br>";
+                    . "Created: "  . $event['CreationDate'] . "</br>"
+                    . "Date of: " . $event['DateOf'] . "</br>"
+                    . "Created by: " . $event['Creator'] . "</br>";
             }
         }
     }
-?>
+    ?>
+</div>
+</div>
+</body>
+</html>

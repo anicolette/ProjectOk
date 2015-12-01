@@ -98,7 +98,7 @@ verifyLogin();
 <div id="header">Tasks</div>
 <div id="navteam"><a href="index.html">home</a><br/>
 	<a href="profile.php">user panel</a></br>
-	<a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>">tasks</a><br />
+	<a href="<?php echo 'teamPage.php?&teamName='.$_GET['teamName'] ?>">team page</a><br />
 	<a href="login.php">login</a></div>
 <div id="tasks">
 	<?php

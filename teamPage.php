@@ -22,8 +22,9 @@ if(!isset($_GET["teamName"]) || !verifyMembership($_GET["teamName"])){
 <div id="header"><?php echo $_GET["teamName"]; ?></div>
 <div id="navteam"><a href="index.html">home</a><br/>
     <a href="profile.php">user panel</a></br>
-    <a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>">tasks</a><br />
-    <a href="login.php">login</a></div>
+    <a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>"> <?php echo $_GET['teamName'] ?> tasks</a><br />
+    <a href="getEventsForUser.php">events</a>
+</div>
 <div id="teamPageOut" align="center">
     <div id="teamPageForms">
 
@@ -87,25 +88,28 @@ if(!isset($_GET["teamName"]) || !verifyMembership($_GET["teamName"])){
             </table>
         </form>
         </br>
-        <form class="form" action="<?php echo 'addUserToTeam.php?&teamName='.$_GET['teamName'] ?>" method="post">
-            <table id ="addMemberTable">
-                <tr>
-                    <td><label for="newMember">Add new member</label></td>
-                    <td><input type="text" name="newMember" placeholder="New member"/></td>
-                </tr>
-            </table>
-            <input type="submit"/></br>
-        </form>
-	</br>
+
 	<form class="form" action=tasksByTag.php method="get">
+        <table id="addMemberTable">
 		<tr>
 			<input type="hidden" name="teamName" value="<?php echo $_GET['teamName'] ?>"/>
 			<td><label for="tag">Search by tag</label></td>
 			<td><input type="text" name="tag" placeholder="Tag"/></td>
-			<input type="submit" value="View tasks with this tag"/>
+			<td><input type="submit" value="View tasks with this tag"/></td>
 		</tr>
-	
+        </table>
 	</form>
+    </br>
+    <form class="form" action="<?php echo 'addUserToTeam.php?&teamName='.$_GET['teamName'] ?>" method="post">
+        <table id ="addMemberTable">
+            <tr>
+                <td><label for="newMember">Add new member</label></td>
+                <td><input type="text" name="newMember" placeholder="New member"/></td>
+                <td><input type="submit"/></br></td>
+            </tr>
+        </table>
+    </form>
+
     </div></div>
 </br>
 <script>

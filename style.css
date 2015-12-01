@@ -90,6 +90,22 @@ body {
   margin-top: 5px;
 }
 
+#navevents {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 900px;
+  line-height: 30px;
+  background-color: #696969;
+  border: 3px solid #3B3B3B;
+  height: 528px;
+  width: 10%;
+  float: left;
+  padding: 5px;
+  text-align: center;
+  margin-top: 5px;
+}
+
 #login {
   line-height: 30px;
   background-color: #696969;
@@ -215,5 +231,20 @@ body {
   margin-top: 5px;
   color: #E0F3ED;
   height: 470px;
-  width: 85.7%;
+  width: 85%;
+  overflow:scroll;
+}
+
+#events {
+  background-color:#696969;
+  vertical-align: top;
+  padding:20px;
+  float: left;
+  border: 3px solid #3B3B3B;
+  margin: 0 auto;
+  margin-top: 5px;
+  color: #E0F3ED;
+  height: 470px;
+  width: 85%;
+  overflow:scroll;
 }

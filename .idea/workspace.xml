@@ -2,35 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eba8aadb-4e03-43b5-b684-6fd61a714961" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addEvent.php" afterPath="$PROJECT_DIR$/addEvent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addTask.php" afterPath="$PROJECT_DIR$/addTask.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addUserToTeam.php" afterPath="$PROJECT_DIR$/addUserToTeam.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adduser.php" afterPath="$PROJECT_DIR$/adduser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignTask.php" afterPath="$PROJECT_DIR$/assignTask.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/createTeam.php" afterPath="$PROJECT_DIR$/createTeam.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/error.php" afterPath="$PROJECT_DIR$/error.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getEventsForUser.php" afterPath="$PROJECT_DIR$/getEventsForUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getTasks.php" afterPath="$PROJECT_DIR$/getTasks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getTasksForTeam.php" afterPath="$PROJECT_DIR$/getTasksForTeam.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getTeamTasksForUser.php" afterPath="$PROJECT_DIR$/getTeamTasksForUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getTeamsForUser.php" afterPath="$PROJECT_DIR$/getTeamsForUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello.php" afterPath="$PROJECT_DIR$/hello.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info.php" afterPath="$PROJECT_DIR$/info.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logindb.php" afterPath="$PROJECT_DIR$/logindb.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newuser.php" afterPath="$PROJECT_DIR$/newuser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/processLogin.php" afterPath="$PROJECT_DIR$/processLogin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profile.php" afterPath="$PROJECT_DIR$/profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/session.php" afterPath="$PROJECT_DIR$/session.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setTaskCompletion.php" afterPath="$PROJECT_DIR$/setTaskCompletion.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskPage.php" afterPath="$PROJECT_DIR$/taskPage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/teamFunctions.php" afterPath="$PROJECT_DIR$/teamFunctions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tasksByTag.php" afterPath="$PROJECT_DIR$/tasksByTag.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/teamPage.php" afterPath="$PROJECT_DIR$/teamPage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/usercreated.php" afterPath="$PROJECT_DIR$/usercreated.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/userdb.sql" afterPath="$PROJECT_DIR$/userdb.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ProjectOk.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,8 +34,28 @@
       <file leaf-file-name="taskPage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskPage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+            <state vertical-scroll-proportion="-28.708334">
+              <caret line="141" column="4" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tasksByTag.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tasksByTag.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.25">
+              <caret line="100" column="91" selection-start-line="100" selection-start-column="91" selection-end-line="100" selection-end-column="91" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getTeamTasksForUser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getTeamTasksForUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-125.0">
+              <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -65,8 +64,8 @@
       <file leaf-file-name="teamPage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/teamPage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.458334">
-              <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+            <state vertical-scroll-proportion="-21.833334">
+              <caret line="107" column="47" selection-start-line="107" selection-start-column="47" selection-end-line="107" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -76,50 +75,51 @@
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+              <caret line="92" column="10" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/profile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getEventsForUser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/getEventsForUser.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.0">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-              <folding>
-                <element signature="e#7#86#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addEvent.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addEvent.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addEvent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.732899">
+            <state vertical-scroll-proportion="-21.875">
               <caret line="35" column="99" selection-start-line="35" selection-start-column="99" selection-end-line="35" selection-end-column="99" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="teamFunctions.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="teamFunctions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/teamFunctions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="7.2557">
               <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1448933015000" expanded="true" signature="491:534" placeholder="SELECT Name ..USERS..." />
+                <marker date="1448933015000" expanded="true" signature="953:996" placeholder="SELECT Name ..TEAMS..." />
+                <marker date="1448933015000" expanded="true" signature="1727:1802" placeholder="SELECT UName..TEAM_MEMBERSHIP..." />
+                <marker date="1448933015000" expanded="true" signature="2341:2450" placeholder="INSERT INTO ..." />
+                <marker date="1448933015000" expanded="true" signature="2893:2912" placeholder="SELECT * FRO..TASKS..." />
+                <marker date="1448933015000" expanded="true" signature="3394:3464" placeholder="SELECT * FRO..TASKS..." />
+                <marker date="1448933015000" expanded="true" signature="3889:3964" placeholder="SELECT * FRO..TASKS..." />
+                <marker date="1448933015000" expanded="true" signature="4442:4530" placeholder="UPDATE TASKS..." />
+                <marker date="1448933015000" expanded="true" signature="5372:5422" placeholder="SELECT DISTI..TAGS..." />
+                <marker date="1448933015000" expanded="true" signature="5967:6020" placeholder="SELECT * FRO..TASKS..." />
+                <marker date="1448933015000" expanded="true" signature="6501:6572" placeholder="UPDATE TASKS..." />
+                <marker date="1448933015000" expanded="true" signature="7641:7746" placeholder="SELECT Name ..TEAMS..." />
+                <marker date="1448933015000" expanded="true" signature="8312:8355" placeholder="INSERT INTO ..." />
+                <marker date="1448933015000" expanded="true" signature="9258:9414" placeholder="INSERT INTO ..." />
+                <marker date="1448933015000" expanded="true" signature="9310:9359" placeholder="SELECT Name ..TEAMS..." />
+                <marker date="1448933015000" expanded="true" signature="9363:9412" placeholder="SELECT Name ..USERS..." />
+                <marker date="1448933015000" expanded="true" signature="10778:11268" placeholder="CREATE TABLE..IF..." />
+                <marker date="1448933015000" expanded="true" signature="11369:11599" placeholder="CREATE TABLE..IF..." />
+                <marker date="1448933015000" expanded="true" signature="12054:12118" placeholder="SELECT DISTI..TEAM_MEMBERSHIP..." />
+                <marker date="1448933015000" expanded="true" signature="12552:12935" placeholder="CREATE TABLE..IF..." />
+                <marker date="1448933015000" expanded="true" signature="13318:13411" placeholder="INSERT INTO ..." />
+                <marker date="1448933015000" expanded="true" signature="14066:14086" placeholder="SELECT * FRO..EVENTS..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,15 +143,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/getTasksForTeam.php" />
-        <option value="$PROJECT_DIR$/taskPage.php" />
         <option value="$PROJECT_DIR$/getTeamsForUser.php" />
-        <option value="$PROJECT_DIR$/profile.php" />
         <option value="$PROJECT_DIR$/teamFunctions.php" />
-        <option value="$PROJECT_DIR$/getEventsForUser.php" />
-        <option value="$PROJECT_DIR$/getTeamTasksForUser.php" />
-        <option value="$PROJECT_DIR$/teamPage.php" />
-        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/addEvent.php" />
+        <option value="$PROJECT_DIR$/getTeamTasksForUser.php" />
+        <option value="$PROJECT_DIR$/getEventsForUser.php" />
+        <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/profile.php" />
+        <option value="$PROJECT_DIR$/tasksByTag.php" />
+        <option value="$PROJECT_DIR$/taskPage.php" />
+        <option value="$PROJECT_DIR$/teamPage.php" />
       </list>
     </option>
   </component>
@@ -196,7 +197,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -205,18 +205,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectOk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectOk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -315,6 +306,95 @@
     <entry file="file://$PROJECT_DIR$/teamPage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getEventsForUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <element signature="e#7#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teamFunctions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
+          <folding>
+            <marker date="1448933015000" expanded="true" signature="491:534" placeholder="SELECT Name ..USERS..." />
+            <marker date="1448933015000" expanded="true" signature="953:996" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="1727:1802" placeholder="SELECT UName..TEAM_MEMBERSHIP..." />
+            <marker date="1448933015000" expanded="true" signature="2341:2450" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="2893:2912" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="3394:3464" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="3889:3964" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="4442:4530" placeholder="UPDATE TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="5372:5422" placeholder="SELECT DISTI..TAGS..." />
+            <marker date="1448933015000" expanded="true" signature="5967:6020" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="6501:6572" placeholder="UPDATE TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="7641:7746" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="8312:8355" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="9258:9414" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="9310:9359" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="9363:9412" placeholder="SELECT Name ..USERS..." />
+            <marker date="1448933015000" expanded="true" signature="10778:11268" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="11369:11599" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="12054:12118" placeholder="SELECT DISTI..TEAM_MEMBERSHIP..." />
+            <marker date="1448933015000" expanded="true" signature="12552:12935" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="13318:13411" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="14066:14086" placeholder="SELECT * FRO..EVENTS..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getTeamsForUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teamPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -366,7 +446,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1448933015000" expanded="true" signature="491:534" placeholder="SELECT Name ..USERS..." />
+            <marker date="1448933015000" expanded="true" signature="953:996" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="1727:1802" placeholder="SELECT UName..TEAM_MEMBERSHIP..." />
+            <marker date="1448933015000" expanded="true" signature="2341:2450" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="2893:2912" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="3394:3464" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="3889:3964" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="4442:4530" placeholder="UPDATE TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="5372:5422" placeholder="SELECT DISTI..TAGS..." />
+            <marker date="1448933015000" expanded="true" signature="5967:6020" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="6501:6572" placeholder="UPDATE TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="7641:7746" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="8312:8355" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="9258:9414" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="9310:9359" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="9363:9412" placeholder="SELECT Name ..USERS..." />
+            <marker date="1448933015000" expanded="true" signature="10778:11268" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="11369:11599" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="12054:12118" placeholder="SELECT DISTI..TEAM_MEMBERSHIP..." />
+            <marker date="1448933015000" expanded="true" signature="12552:12935" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="13318:13411" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="14066:14086" placeholder="SELECT * FRO..EVENTS..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -432,7 +535,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1448933015000" expanded="true" signature="491:534" placeholder="SELECT Name ..USERS..." />
+            <marker date="1448933015000" expanded="true" signature="953:996" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="1727:1802" placeholder="SELECT UName..TEAM_MEMBERSHIP..." />
+            <marker date="1448933015000" expanded="true" signature="2341:2450" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="2893:2912" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="3394:3464" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="3889:3964" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="4442:4530" placeholder="UPDATE TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="5372:5422" placeholder="SELECT DISTI..TAGS..." />
+            <marker date="1448933015000" expanded="true" signature="5967:6020" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="6501:6572" placeholder="UPDATE TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="7641:7746" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="8312:8355" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="9258:9414" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="9310:9359" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="9363:9412" placeholder="SELECT Name ..USERS..." />
+            <marker date="1448933015000" expanded="true" signature="10778:11268" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="11369:11599" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="12054:12118" placeholder="SELECT DISTI..TEAM_MEMBERSHIP..." />
+            <marker date="1448933015000" expanded="true" signature="12552:12935" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="13318:13411" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="14066:14086" placeholder="SELECT * FRO..EVENTS..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -519,14 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/getTeamsForUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -543,14 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/teamFunctions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setTaskCompletion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -559,10 +669,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskPage.php">
+    <entry file="file://$PROJECT_DIR$/addEvent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        <state vertical-scroll-proportion="-21.875">
+          <caret line="35" column="99" selection-start-line="35" selection-start-column="99" selection-end-line="35" selection-end-column="99" />
           <folding />
         </state>
       </provider>
@@ -570,42 +680,89 @@
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+          <caret line="92" column="10" selection-start-line="92" selection-start-column="10" selection-end-line="92" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.208333">
+          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/getTeamTasksForUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state vertical-scroll-proportion="-125.0">
+          <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/getEventsForUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        <state vertical-scroll-proportion="-19.375">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="e#7#86#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/teamPage.php">
+    <entry file="file://$PROJECT_DIR$/tasksByTag.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.458334">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="100" column="91" selection-start-line="100" selection-start-column="91" selection-end-line="100" selection-end-column="91" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addEvent.php">
+    <entry file="file://$PROJECT_DIR$/taskPage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.732899">
-          <caret line="35" column="99" selection-start-line="35" selection-start-column="99" selection-end-line="35" selection-end-column="99" />
+        <state vertical-scroll-proportion="-28.708334">
+          <caret line="141" column="4" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teamPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.833334">
+          <caret line="107" column="47" selection-start-line="107" selection-start-column="47" selection-end-line="107" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teamFunctions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.2557">
+          <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
+          <folding>
+            <marker date="1448933015000" expanded="true" signature="491:534" placeholder="SELECT Name ..USERS..." />
+            <marker date="1448933015000" expanded="true" signature="953:996" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="1727:1802" placeholder="SELECT UName..TEAM_MEMBERSHIP..." />
+            <marker date="1448933015000" expanded="true" signature="2341:2450" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="2893:2912" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="3394:3464" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="3889:3964" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="4442:4530" placeholder="UPDATE TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="5372:5422" placeholder="SELECT DISTI..TAGS..." />
+            <marker date="1448933015000" expanded="true" signature="5967:6020" placeholder="SELECT * FRO..TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="6501:6572" placeholder="UPDATE TASKS..." />
+            <marker date="1448933015000" expanded="true" signature="7641:7746" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="8312:8355" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="9258:9414" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="9310:9359" placeholder="SELECT Name ..TEAMS..." />
+            <marker date="1448933015000" expanded="true" signature="9363:9412" placeholder="SELECT Name ..USERS..." />
+            <marker date="1448933015000" expanded="true" signature="10778:11268" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="11369:11599" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="12054:12118" placeholder="SELECT DISTI..TEAM_MEMBERSHIP..." />
+            <marker date="1448933015000" expanded="true" signature="12552:12935" placeholder="CREATE TABLE..IF..." />
+            <marker date="1448933015000" expanded="true" signature="13318:13411" placeholder="INSERT INTO ..." />
+            <marker date="1448933015000" expanded="true" signature="14066:14086" placeholder="SELECT * FRO..EVENTS..." />
+          </folding>
         </state>
       </provider>
     </entry>
