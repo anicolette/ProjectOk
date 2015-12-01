@@ -140,6 +140,25 @@
 		}	
 	}
 
+	#Gets the tasks that have the given tag attached
+	function getTasksByTag($teamName, $tag){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));	
+
+			$taskQ = $teamDb->prepare("SELECT * FROM TASKS JOIN TAGS ON TASKS.TaskID=TAGS.TaskID AND TAGS.Tag=:tag");
+			$taskQP = array(":tag" => $tag);
+			$taskQ->setFetchMode(PDO::FETCH_ASSOC);
+			$taskQ->execute($taskQP);
+
+			$taskList = $taskQ->fetchAll();
+			return (json_encode($taskList));
+		} catch(Exception $e){
+			die($e);
+		}	
+	}
+
 	#Change the completion status of a task
 	function setTaskCompletion($teamName, $taskNo, $completed){
 		error_reporting(E_ALL);
@@ -152,6 +171,43 @@
 			$taskQ->setFetchMode(PDO::FETCH_ASSOC);
 			$taskQ->execute($taskQP);
 
+		} catch(Exception $e){
+			die($e);
+		}	
+	}
+
+	#Adds a tag to a given task
+	function addTag($teamName, $taskNo, $tag){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));	
+
+			$tagQ = $teamDb->prepare("REPLACE INTO TAGS(TaskID, Tag) VALUES (:taskNo, :tag)");
+			$tagQP = array(":taskNo" => $taskNo, ":tag" => $tag);
+			$tagQ->setFetchMode(PDO::FETCH_ASSOC);
+			$tagQ->execute($tagQP);
+			
+		} catch(Exception $e){
+			die($e);
+		}	
+	}
+
+	#Gets the tags attached to a given task
+	function getTags($teamName, $taskNo){
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		try{
+			$teamDb = teamLogin(spaceReplace($teamName));	
+
+			$tagQ = $teamDb->prepare("SELECT DISTINCT Tag from TAGS WHERE TaskID=:taskNo");
+			$tagQP = array(":taskNo" => $taskNo);
+			$tagQ->setFetchMode(PDO::FETCH_ASSOC);
+			$tagQ->execute($tagQP);
+			$tagList = $tagQ->fetchAll();
+
+			return (json_encode($tagList));
+			
 		} catch(Exception $e){
 			die($e);
 		}	
@@ -322,10 +378,19 @@
 				" Responsible VARCHAR(100), INDEX(Responsible)," . 
 				" Finished CHAR NOT NULL DEFAULT 'N' " .
 				" )";
-			echo "$taskTable";
+
 
 			$taskTableCom = $teamPdo->prepare($taskTable);
 			$taskTableCom->execute();
+
+			$tagTable = "CREATE TABLE IF NOT EXISTS TAGS( TaskID INT NOT NULL," . 
+				" Tag VARCHAR(50) NOT NULL," .
+				" FOREIGN KEY (TaskID) REFERENCES TASKS(TaskID) ON UPDATE CASCADE ON DELETE CASCADE," .
+				" PRIMARY KEY (TaskID, Tag)" .   
+				" )";
+
+			$tagTableCom = $teamPdo->prepare($tagTable);
+			$tagTableCom->execute();
 
 			createEventTable($teamPdo);
 

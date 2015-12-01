@@ -94,6 +94,16 @@ if(!isset($_GET["teamName"]) || !verifyMembership($_GET["teamName"])){
             </table>
             <input type="submit"/></br>
         </form>
+	</br>
+	<form class="form" action=tasksByTag.php method="get">
+		<tr>
+			<input type="hidden" name="teamName" value="<?php echo $_GET['teamName'] ?>"/>
+			<td><label for="tag">Search by tag</label></td>
+			<td><input type="text" name="tag" placeholder="Tag"/></td>
+			<input type="submit" value="View tasks with this tag"/>
+		</tr>
+	
+	</form>
     </div></div>
 </br>
 <script>

@@ -1,23 +1,32 @@
 <?php
-    require_once("teamFunctions.php");
-    // User must be logged in to view team tasks
-    verifyLogin();
+require_once("teamFunctions.php");
+// User must be logged in to view team tasks
+verifyLogin();
 ?>
 
 <!doctype html>
 <html>
 <head>
-    <title>
-        <?php
-            echo $_GET['teamName'] . " Task List";
-        ?>
-    </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+	<title>
+		<?php
+		echo $_GET['teamName'] . " Task List";
+		?>
+	</title>
+	<?php
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+
+	require_once("teamFunctions.php");
+	verifyLogin();
+
+	$teamName = $_GET["teamName"];
+	$tag = $_GET["tag"];
+	?>
+	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<script type="text/javascript">
 
 		function assign(formObj){
-			console.log("assign called\n");
 
 			var req;
 			if(window.XMLHttpRequest){
@@ -31,14 +40,13 @@
 				if(req.readyState == 4 && req.status == 200){
 					if(req.responseText=="0"){
 						alert("Invalid User!");
-					}			
+					}
 				}
 			}
 			req.open("post", "assignTask.php", false);
-    			req.send(new FormData(formObj));
+			req.send(new FormData(formObj));
 		}
 
-		
 		function setComplete(formObj){
 			console.log("setComplete called\n");
 
@@ -87,18 +95,56 @@
 </head>
 
 <body id="taskList">
-    <div id="header">Tasks</div>
-	<div id="navteam"><a href="index.html">home</a><br/>
-		<a href="profile.php">user panel</a></br>
-		<a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>">tasks</a><br />
-		<a href="login.php">login</a></div>
-    <div id="tasks">
-    <?php
-        $tasks = getTasks($_GET['teamName']);
-        $tasks_array = json_decode($tasks,True);
-        // Title, Description, CreationDate, DueDate, Creator, Responsible
-        foreach ($tasks_array as $task) {
-            echo "<h3>" . $task['Title'] . " to be completed by " . $task['DueDate'] . " by " . $task['Responsible']  . "</h3>" .
+<div id="header">Tasks</div>
+<div id="navteam"><a href="index.html">home</a><br/>
+	<a href="profile.php">user panel</a></br>
+	<a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>">tasks</a><br />
+	<a href="login.php">login</a></div>
+<div id="tasks">
+	<?php
+	try{
+		#Verify that a user was provided through POST
+		if(empty($_GET["tag"]) ){
+			echo "Must fill out all fields\n";
+			exit();
+		}
+
+
+		#Verify that the given team name is valid (Someone could have spoofed the GET value)
+		$nameRes = verifyTeam($teamName);
+		if(!$nameRes){
+			echo "Invalid team\n";
+			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			exit();
+		}
+
+		#Verify that the current user is a member of the given team
+		$memberRes = verifyMembership($teamName);
+		if(!$memberRes){
+			echo "Invalid team\n";
+			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			exit();
+		}
+
+		#Verify that the current user is a member of the given team
+		$memberRes = verifyMembership($teamName);
+		if(!$memberRes){
+			echo "Invalid team\n";
+			echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
+			exit();
+		}
+
+		$tasks = getTasksByTag($teamName,$tag);
+		$tasks_array = json_decode($tasks,True);
+
+
+	}catch (Exception $e){
+		die($e);
+	}
+	// Title, Description, CreationDate, DueDate, Creator, Responsible
+	foreach ($tasks_array as $task) {
+	
+           	 echo "<h3>" . $task['Title'] . " to be completed by " . $task['DueDate'] . " by " . $task['Responsible']  . "</h3>" .
                 "<h4>Description:</h4>" . $task['Description'] .
                 "<br>" .
                 "<h5>Created on " . $task['CreationDate'] . " by " . $task['Creator'] . "</h5>" . 
@@ -136,33 +182,9 @@
 		$addTagButton .= "</form>";
 		echo $addTagButton;
 
-        }
-    ?>
-    </div>
-<!--    Come back to this later to make page more responsive
-<script>
-    function loadTasks(){
-        var req;
-        if(window.XMLHttpRequest){
-            req = new XMLHttpRequest();
-        } else{
-            req = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        req.onreadystatechange = function request(){
-            if(req.readyState == 4 && req.status == 200){
-                var res = JSON.parse(req.responseText);
-                var htmlRes = "";
-                for(var row in res){
-                    htmlRes += "<a href=\"teamPage.php?&teamName=" + res[row].TName + "\">" + res[row].TName + "</a></br>";
-                }
-                document.getElementById("TeamList").innerHTML = htmlRes;
-            }
-        }
-        req.open("post", "getTasksForTeam.php?&teamName=" + getUrlVars()["teamName"]);
-        req.send();
-    }
-</script>
--->
-        </div>
+	}
+	?>
+</div>
+</div>
 </body>
 </html>
