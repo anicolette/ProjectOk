@@ -15,7 +15,7 @@
 
 	try{
 		#Verify that the given team name is valid (Someone could have spoofed the GET value and verify that the current user is a member of the given team
-		if(!verifyTeam($teamName) || !isMemberOfTeam($_SESSION["username"], $teamName) ){
+		if(!verifyTeam($teamName) || !isMemberOfTeam($_SESSION["username"], $teamName) || !isMemberOfTeam($username, $teamName) ){
 			#echo "Invalid team\n";
 			#echo "<script>setTimeout(\"window.location='profile.php'\", 3000);</script>";
 			#exit();
