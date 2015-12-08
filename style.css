@@ -237,7 +237,6 @@ li a:hover {
   border: 5px solid #3B3B3B;
   padding:15px;
   color: #E0F3ED;
-  float:right;
 }
 
 #createEventTable {
@@ -245,6 +244,17 @@ li a:hover {
     border: 5px solid #3B3B3B;
     padding:15px;
     color: #E0F3ED;
+}
+
+#addTaskForm {
+  float:left;
+  width:50%;
+}
+
+#addEventForm {
+  float:left;
+  width:50%;
+  padding-bottom:40px;
 }
 
 #taskList h1  {

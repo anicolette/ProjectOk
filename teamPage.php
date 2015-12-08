@@ -25,8 +25,9 @@ if(!isset($_GET["teamName"]) || !verifyMembership($_GET["teamName"])){
 	  <ul style="border: 1px solid #3B3B3B;">
 		<li><a href="index.html">home</a></li>
 		<li><a href="profile.php">user panel</a></li>
+        <li><a href="getEventsForUser.php">events</a></li>
 		<li><a href="<?php echo 'taskPage.php?&teamName='.$_GET['teamName'] ?>"> <?php echo $_GET['teamName'] ?> tasks</a></li>
-		<li><a href="getEventsForUser.php">events</a></li>
+
 		<ul style="float:right; list-style-type:none;">
 			<li><a href="login.php">login</a></li>
 			<li><a href="newuser.php">register</a></li>
@@ -78,7 +79,7 @@ if(!isset($_GET["teamName"]) || !verifyMembership($_GET["teamName"])){
                 </tr>
             </table>
         </form>
-        <form class="form" action="<?php echo 'addEvent.php?&teamName='.$_GET['teamName'] ?>" method="post">
+        <form id="addEventForm" action="<?php echo 'addEvent.php?&teamName='.$_GET['teamName'] ?>" method="post">
             <table id="createEventTable">
                 <caption>Add new event</caption>
                 <tr>
